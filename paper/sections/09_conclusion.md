@@ -1,0 +1,7 @@
+# 9. Conclusion
+
+A person staring out of a window is not processing the view. The behavior looks like absence, but it is a load-management strategy: the system sheds input before it fails. This paper asked whether LLM agents have a functional analogue.
+
+We defined functional homeostasis as observable self-monitoring, regulation, protective disengagement, and recovery; built COGLOAD to measure it; and evaluated three production models under context, latency, and token-budget stress. The main finding is that overload produces silent truncation: 63% of overloaded runs hit the output cap and returned unusable output, only 37% were valid, and none declared an omission. A homeostatic protocol restored validity to 87% and made omissions explicit, but preserved only 41% of the original batches; a content-blind governor preserved 35%. The models answered only the first few batches (mean index 2.4–3.0 of 20), and none from the second half—a functional zoning out. The practical conclusion is that capacity cannot be prompted back, but honesty and recoverability can be engineered.
+
+The practical conclusion is not that models should be taught to "rest." It is that agent runtimes should make load visible, make degradation a legitimate action, preserve invariants, checkpoint before failure, and reward honest partial answers. Soft failure is not a concession; it is a reliability property. [SUMMARY]

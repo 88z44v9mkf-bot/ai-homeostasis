@@ -1,0 +1,12 @@
+<div class="title">Do AI Systems Zone Out?<br>Functional Homeostasis and Graceful Degradation in LLM Agents under Cognitive Load</div>
+
+<div class="author">Jipu Su</div>
+<div class="affil"><sup>1</sup>Chief AI-Native Scientist, Geely Automobile Group, Hangzhou, China</div>
+<div class="affil">jipu.su@geely.com</div>
+<div class="date">November 2026 &middot; Preprint</div>
+
+<div class="abstract">
+<b>Abstract.</b> A tired person staring out of a window is not processing the scene; the eyes are open, but the input is not being handled. The behavior is protective: the system sheds load before it fails. This paper asks whether large language model (LLM) agents have a functional analogue. We introduce the concept of <i>functional homeostasis</i>: observable self-monitoring, load regulation, protective disengagement, and recovery under stress, with no claim of consciousness. We build COGLOAD, a benchmark of multi-thread operations tasks with hidden critical invariants and controlled context, latency, and token-budget stress, and evaluate three production models across four conditions: baseline, overload, overload with a homeostatic protocol (HAP), and overload with an engineering governor. In the main experiment, baseline success is 97%. The collapse is model-specific: two of three models truncate under overload, while one answers all batches at the smaller budget. Under output-budget pressure, 63% of runs hit the output cap and returned truncated, unusable output; only 37% were valid, critical recall fell to 37%, and no overloaded run declared that it had omitted work. A homeostatic protocol restored validity to 87% and made omission explicit in 87% of runs, but preserved only 41% of the original batches; a content-blind governor preserved 35%. The positional analysis shows the "zoning out" pattern directly: the models answered only the first few batches (mean index 2.4–3.0 of 20), and no answered batch came from the second half. We then specify HAP and derive design rules for agent runtimes: load telemetry, explicit degradation actions, invariant preservation, checkpointing, and recovery. The results suggest that the right question is not whether AI systems "feel" tired, but whether they can be designed to fail softly, report honestly, and recover quickly.
+</div>
+
+<div class="keywords"><b>Keywords:</b> LLM agents; cognitive load; graceful degradation; self-monitoring; context limits; hallucination; reliability; homeostasis; agent runtime</div>

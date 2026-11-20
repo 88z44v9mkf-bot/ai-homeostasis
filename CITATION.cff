@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use COGLOAD-B or HAP, please cite this work."
+title: "Do AI Systems Zone Out? Functional Homeostasis and Graceful Degradation in LLM Agents under Cognitive Load"
+authors:
+  - family-names: "Su"
+    given-names: "Jipu"
+    affiliation: "Geely Automobile Group"
+year: 2026
+version: 0.1.0
+license: "CC-BY-4.0"

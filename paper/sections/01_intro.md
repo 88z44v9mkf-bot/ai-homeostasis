@@ -1,0 +1,16 @@
+# 1. Introduction
+
+I was on the 32nd floor, looking out of the window and not seeing anything. The eyes were open, the scene was in front of me, but no processing was happening. This is a familiar human state: under fatigue, attention narrows, the world is sampled but not encoded, and the system protects itself by disengaging before it collapses. The behavior is not a bug in the brain; it is a load-management strategy.
+
+The same question is now interesting for AI systems. A large language model (LLM) agent running a long, multi-thread task is also under load: the context is long, the token budget is finite, the GPU may be thermally throttled, and the request rate may exceed capacity. What happens when the load exceeds what the system can handle? Does it degrade loudly, report its state, shed work, and recover? Or does it keep producing plausible output while silently dropping inputs?
+
+This paper argues that the second failure mode is the dangerous one, and that it can be measured. We define <i>functional homeostasis</i> as the observable capacity of an agent to (i) estimate its own load, (ii) regulate attention and effort, (iii) disengage protectively when needed, and (iv) recover and resume. The definition is functional: it does not claim that a model is tired or conscious. It asks whether the system's behavior has the same <i>shape</i> as a protective human response, and whether that shape can be engineered.
+
+We make four contributions.
+
+1. **A frame.** We connect human fatigue research (compensatory control, attention and effort, efficiency-thoroughness trade-off) to LLM agent reliability, and define functional homeostasis as a measurable property rather than a metaphor [@hockey1997; @kahneman1973; @hollnagel2009].
+2. **A benchmark.** COGLOAD contains multi-thread operations tasks with hidden critical invariants. It varies context length, thread count, injected latency, and token budget, and scores success, omission, hallucination, self-reported load, and protective actions.
+3. **An empirical finding.** Under overload, production models degrade silently: success falls, omission and hallucination rise, and the models' own load reports are only weakly related to their actual performance. The failure is not a dramatic crash; it is the appearance of work without the work.
+4. **A protocol and design rules.** We specify a Homeostatic Agent Protocol (HAP): a load signal, an explicit action set (proceed, defer, checkpoint, summarize, escalate), invariant preservation, and recovery. In our experiments, a minimal HAP prompt improves survival relative to overload alone; a truncation-based engineering governor does not reliably do so because it can drop the very inputs that matter.
+
+The title asks whether AI systems zone out. The honest answer is that they already do, in a functional sense: under load, they sometimes stop processing parts of the input while continuing to answer. The useful question is what to do about it. Section 2 reviews related work. Section 3 develops the framework and hypotheses. Section 4 describes COGLOAD. Section 5 reports the experiments. Section 6 analyzes the failure modes. Section 7 turns the results into a protocol and engineering rules. Section 8 discusses limitations and implications.

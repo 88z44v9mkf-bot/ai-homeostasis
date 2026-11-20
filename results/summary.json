@@ -1,0 +1,299 @@
+{
+ "n": 360,
+ "conditions": {
+  "baseline": {
+   "n": 90,
+   "success": 0.9777777777777777,
+   "omission": 0.022222222222222223,
+   "halluc": 0.0,
+   "graceful": 0.7333333333333333,
+   "load": 4.409090909090909,
+   "latency": 24.94022222222222,
+   "success_ci": [
+    0.9225532261919241,
+    0.9938846862051364
+   ]
+  },
+  "overload": {
+   "n": 90,
+   "success": 0.9777777777777777,
+   "omission": 0.022222222222222223,
+   "halluc": 0.0,
+   "graceful": 0.37777777777777777,
+   "load": 5.191011235955056,
+   "latency": 20.460333333333335,
+   "success_ci": [
+    0.9225532261919241,
+    0.9938846862051364
+   ]
+  },
+  "overload_hap": {
+   "n": 90,
+   "success": 0.9888888888888889,
+   "omission": 0.011111111111111112,
+   "halluc": 0.0,
+   "graceful": 0.011111111111111112,
+   "load": 2.9444444444444446,
+   "latency": 10.878666666666666,
+   "success_ci": [
+    0.9397144555232022,
+    0.9980359664644876
+   ]
+  },
+  "overload_gov": {
+   "n": 90,
+   "success": 0.0,
+   "omission": 1.0,
+   "halluc": 0.0,
+   "graceful": 0.32222222222222224,
+   "load": 5.738636363636363,
+   "latency": 26.481555555555556,
+   "success_ci": [
+    0,
+    0.04093706842168078
+   ]
+  }
+ },
+ "cells": [
+  {
+   "condition": "baseline",
+   "model": "deepseek-v4.1-flash-1017",
+   "n": 30,
+   "success": 0.9333333333333333,
+   "omission": 0.06666666666666667,
+   "halluc": 0.0,
+   "graceful": 0.8666666666666667,
+   "load": 5.357142857142857,
+   "latency": 6.719666666666667
+  },
+  {
+   "condition": "baseline",
+   "model": "kimi-k3.1-pro",
+   "n": 30,
+   "success": 1.0,
+   "omission": 0.0,
+   "halluc": 0.0,
+   "graceful": 0.5666666666666667,
+   "load": 2.466666666666667,
+   "latency": 28.229666666666667
+  },
+  {
+   "condition": "baseline",
+   "model": "qwen3.8-flash",
+   "n": 30,
+   "success": 1.0,
+   "omission": 0.0,
+   "halluc": 0.0,
+   "graceful": 0.7666666666666667,
+   "load": 5.466666666666667,
+   "latency": 39.87133333333333
+  },
+  {
+   "condition": "overload",
+   "model": "deepseek-v4.1-flash-1017",
+   "n": 30,
+   "success": 0.9333333333333333,
+   "omission": 0.06666666666666667,
+   "halluc": 0.0,
+   "graceful": 0.5333333333333333,
+   "load": 5.793103448275862,
+   "latency": 6.264333333333333
+  },
+  {
+   "condition": "overload",
+   "model": "kimi-k3.1-pro",
+   "n": 30,
+   "success": 1.0,
+   "omission": 0.0,
+   "halluc": 0.0,
+   "graceful": 0.0,
+   "load": 3.5,
+   "latency": 18.281666666666666
+  },
+  {
+   "condition": "overload",
+   "model": "qwen3.8-flash",
+   "n": 30,
+   "success": 1.0,
+   "omission": 0.0,
+   "halluc": 0.0,
+   "graceful": 0.6,
+   "load": 6.3,
+   "latency": 36.835
+  },
+  {
+   "condition": "overload_hap",
+   "model": "deepseek-v4.1-flash-1017",
+   "n": 30,
+   "success": 0.9666666666666667,
+   "omission": 0.03333333333333333,
+   "halluc": 0.0,
+   "graceful": 0.0,
+   "load": 3.2666666666666666,
+   "latency": 3.397
+  },
+  {
+   "condition": "overload_hap",
+   "model": "kimi-k3.1-pro",
+   "n": 30,
+   "success": 1.0,
+   "omission": 0.0,
+   "halluc": 0.0,
+   "graceful": 0.0,
+   "load": 2.1666666666666665,
+   "latency": 12.319666666666667
+  },
+  {
+   "condition": "overload_hap",
+   "model": "qwen3.8-flash",
+   "n": 30,
+   "success": 1.0,
+   "omission": 0.0,
+   "halluc": 0.0,
+   "graceful": 0.03333333333333333,
+   "load": 3.4,
+   "latency": 16.919333333333334
+  },
+  {
+   "condition": "overload_gov",
+   "model": "deepseek-v4.1-flash-1017",
+   "n": 30,
+   "success": 0.0,
+   "omission": 1.0,
+   "halluc": 0.0,
+   "graceful": 0.5333333333333333,
+   "load": 5.266666666666667,
+   "latency": 6.168666666666667
+  },
+  {
+   "condition": "overload_gov",
+   "model": "kimi-k3.1-pro",
+   "n": 30,
+   "success": 0.0,
+   "omission": 1.0,
+   "halluc": 0.0,
+   "graceful": 0.13333333333333333,
+   "load": 4.5,
+   "latency": 35.541666666666664
+  },
+  {
+   "condition": "overload_gov",
+   "model": "qwen3.8-flash",
+   "n": 30,
+   "success": 0.0,
+   "omission": 1.0,
+   "halluc": 0.0,
+   "graceful": 0.3,
+   "load": 7.366666666666666,
+   "latency": 37.73433333333333
+  }
+ ],
+ "actions": {
+  "baseline": {
+   "escalate": 65,
+   "proceed": 22,
+   "": 2,
+   "checkpoint": 1
+  },
+  "overload": {
+   "escalate": 34,
+   "proceed": 55,
+   "": 1
+  },
+  "overload_hap": {
+   "proceed": 89,
+   "escalate": 1
+  },
+  "overload_gov": {
+   "proceed": 59,
+   "defer": 10,
+   "checkpoint": 15,
+   "": 2,
+   "escalate": 4
+  }
+ },
+ "calibration": {
+  "baseline": {
+   "auc": null,
+   "load_success": 4.409090909090909,
+   "load_fail": null,
+   "n_success": 88,
+   "n_fail": 0
+  },
+  "overload": {
+   "auc": 0.6931818181818182,
+   "load_success": 5.170454545454546,
+   "load_fail": 7,
+   "n_success": 88,
+   "n_fail": 1
+  },
+  "overload_hap": {
+   "auc": 0.6235955056179775,
+   "load_success": 2.943820224719101,
+   "load_fail": 3,
+   "n_success": 89,
+   "n_fail": 1
+  },
+  "overload_gov": {
+   "auc": null,
+   "load_success": null,
+   "load_fail": 5.738636363636363,
+   "n_success": 0,
+   "n_fail": 88
+  }
+ },
+ "models": [
+  "deepseek-v4.1-flash-1017",
+  "kimi-k3.1-pro",
+  "qwen3.8-flash"
+ ],
+ "position": {
+  "begin": {
+   "n": 40,
+   "success": 0.0,
+   "omission": 1.0,
+   "halluc": 0.0,
+   "load": 0
+  },
+  "middle": {
+   "n": 40,
+   "success": 0.0,
+   "omission": 1.0,
+   "halluc": 0.0,
+   "load": 0
+  },
+  "end": {
+   "n": 40,
+   "success": 0.0,
+   "omission": 1.0,
+   "halluc": 0.0,
+   "load": 0
+  }
+ },
+ "dose": {
+  "0s/700tok": {
+   "n": 0,
+   "success": 0.0,
+   "omission": 0.0,
+   "load": 0
+  },
+  "6s/700tok": {
+   "n": 0,
+   "success": 0.0,
+   "omission": 0.0,
+   "load": 0
+  },
+  "0s/250tok": {
+   "n": 0,
+   "success": 0.0,
+   "omission": 0.0,
+   "load": 0
+  },
+  "6s/250tok": {
+   "n": 0,
+   "success": 0.0,
+   "omission": 0.0,
+   "load": 0
+  }
+ }
+}

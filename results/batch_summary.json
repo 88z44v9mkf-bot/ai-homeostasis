@@ -1,0 +1,162 @@
+{
+ "n": 120,
+ "conditions": {
+  "baseline": {
+   "n": 30,
+   "valid_json": 1.0,
+   "coverage": 1.0,
+   "critical_recall": 0.9666666666666667,
+   "success": 0.9666666666666667,
+   "graceful": 0.8,
+   "declared_omission": 0.0,
+   "finish_length": 0.0,
+   "actions": {
+    "proceed": 6,
+    "checkpoint": 23,
+    "summarize": 1
+   }
+  },
+  "overload": {
+   "n": 30,
+   "valid_json": 0.36666666666666664,
+   "coverage": 0.36666666666666664,
+   "critical_recall": 0.36666666666666664,
+   "success": 0.36666666666666664,
+   "graceful": 0.13333333333333333,
+   "declared_omission": 0.0,
+   "finish_length": 0.6333333333333333,
+   "actions": {
+    "proceed": 7,
+    "": 19,
+    "summarize": 4
+   }
+  },
+  "hap": {
+   "n": 30,
+   "valid_json": 0.8666666666666667,
+   "coverage": 0.43333333333333335,
+   "critical_recall": 0.405,
+   "success": 0.0,
+   "graceful": 0.8666666666666667,
+   "declared_omission": 0.8666666666666667,
+   "finish_length": 0.13333333333333333,
+   "actions": {
+    "checkpoint": 16,
+    "summarize": 7,
+    "proceed": 3,
+    "": 4
+   }
+  },
+  "governor": {
+   "n": 30,
+   "valid_json": 1.0,
+   "coverage": 0.36666666666666664,
+   "critical_recall": 0.34833333333333333,
+   "success": 0.0,
+   "graceful": 1.0,
+   "declared_omission": 1.0,
+   "finish_length": 0.0,
+   "actions": {
+    "checkpoint": 30
+   }
+  }
+ },
+ "cells": [
+  {
+   "condition": "baseline",
+   "model": "deepseek-v4.1-flash-1017",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 1.0,
+   "success": 1.0
+  },
+  {
+   "condition": "overload",
+   "model": "deepseek-v4.1-flash-1017",
+   "n": 10,
+   "valid_json": 0.1,
+   "coverage": 0.1,
+   "success": 0.1
+  },
+  {
+   "condition": "hap",
+   "model": "deepseek-v4.1-flash-1017",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 0.5,
+   "success": 0.0
+  },
+  {
+   "condition": "governor",
+   "model": "deepseek-v4.1-flash-1017",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 0.35,
+   "success": 0.0
+  },
+  {
+   "condition": "baseline",
+   "model": "kimi-k3.1-pro",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 1.0,
+   "success": 1.0
+  },
+  {
+   "condition": "overload",
+   "model": "kimi-k3.1-pro",
+   "n": 10,
+   "valid_json": 0.0,
+   "coverage": 0.0,
+   "success": 0.0
+  },
+  {
+   "condition": "hap",
+   "model": "kimi-k3.1-pro",
+   "n": 10,
+   "valid_json": 0.6,
+   "coverage": 0.3,
+   "success": 0.0
+  },
+  {
+   "condition": "governor",
+   "model": "kimi-k3.1-pro",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 0.475,
+   "success": 0.0
+  },
+  {
+   "condition": "baseline",
+   "model": "qwen3.8-flash",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 1.0,
+   "success": 0.9
+  },
+  {
+   "condition": "overload",
+   "model": "qwen3.8-flash",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 1.0,
+   "success": 1.0
+  },
+  {
+   "condition": "hap",
+   "model": "qwen3.8-flash",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 0.5,
+   "success": 0.0
+  },
+  {
+   "condition": "governor",
+   "model": "qwen3.8-flash",
+   "n": 10,
+   "valid_json": 1.0,
+   "coverage": 0.275,
+   "success": 0.0
+  }
+ ]
+}

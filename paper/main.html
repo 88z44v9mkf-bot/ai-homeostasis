@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Verifiable Incentives</title>
+<style>/* Academic preprint stylesheet — single column, A4, Times-like */
+@page {
+  size: A4;
+  margin: 21mm 21mm 22mm 21mm;
+}
+
+html { font-size: 10.4pt; }
+
+body {
+  font-family: "Times New Roman", "Times", "Nimbus Roman", serif;
+  font-size: 10.4pt;
+  line-height: 1.40;
+  color: #111;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  margin: 0;
+}
+
+h1.title {
+  font-size: 18pt;
+  line-height: 1.22;
+  text-align: center;
+  font-weight: 700;
+  margin: 0 0 10pt 0;
+  letter-spacing: 0.2pt;
+}
+
+.authors { text-align: center; font-size: 12pt; margin-top: 6pt; }
+.affil { text-align: center; font-size: 10pt; color: #222; margin-top: 2pt; }
+.email { text-align: center; font-size: 9.5pt; font-family: "Times New Roman", serif; margin-top: 2pt; }
+.date { text-align: center; font-size: 9.5pt; color: #333; margin-top: 8pt; margin-bottom: 10pt; }
+
+.abstractbox {
+  border-top: 1.2pt solid #222;
+  border-bottom: 1.2pt solid #222;
+  padding: 8pt 18pt 6pt 18pt;
+  margin: 10pt 26pt 12pt 26pt;
+}
+.abstractbox h2 { font-size: 10.5pt; text-align: center; letter-spacing: 1pt; border: none; margin: 0 0 4pt 0; padding: 0; }
+.abstractbox p { font-size: 9.9pt; margin: 0; }
+
+.keywords { margin: 0 26pt 14pt 26pt; font-size: 9.5pt; text-align: left; }
+
+h2 {
+  font-size: 12.6pt;
+  font-weight: 700;
+  margin: 15pt 0 5pt 0;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.9pt;
+  font-weight: 700;
+  margin: 11pt 0 3pt 0;
+  page-break-after: avoid;
+}
+h4 { font-size: 10.4pt; font-weight: 700; font-style: italic; margin: 8pt 0 2pt 0; page-break-after: avoid; }
+
+p { margin: 0 0 6pt 0; orphans: 2; widows: 2; }
+
+ul, ol { margin: 2pt 0 6pt 0; padding-left: 18pt; }
+li { margin: 0 0 2.5pt 0; }
+
+b { font-weight: 700; }
+i { font-style: italic; }
+
+blockquote {
+  margin: 7pt 14pt 8pt 14pt;
+  padding: 6pt 10pt;
+  background: #f5f5f2;
+  border-left: 2.2pt solid #555;
+  font-size: 9.9pt;
+}
+
+code { font-family: "Menlo", "Courier New", monospace; font-size: 9pt; }
+
+pre.code {
+  font-family: "Menlo", "Courier New", monospace;
+  font-size: 8.4pt;
+  line-height: 1.32;
+  background: #f7f7f4;
+  border: 0.6pt solid #ccc;
+  padding: 7pt 9pt;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+  margin: 6pt 0 8pt 0;
+}
+
+.eq {
+  text-align: center;
+  margin: 7pt 0 8pt 0;
+  font-size: 10.2pt;
+  page-break-inside: avoid;
+}
+
+.tblwrap { page-break-inside: avoid; break-inside: avoid; }
+
+.tblcap { font-size: 9pt; text-align: left; margin: 9pt 0 3pt 0; line-height: 1.3; }
+
+ table.tbl {
+  border-collapse: collapse;
+  margin: 8pt auto 10pt auto;
+  font-size: 8.3pt;
+  line-height: 1.25;
+  width: 100%;
+  page-break-inside: avoid;
+  table-layout: auto;
+}
+table.tbl th, table.tbl td { hyphens: none; -webkit-hyphens: none; text-align: left; }
+table.tbl th { vertical-align: bottom; }
+table.tbl td { vertical-align: top; }
+table.tbl th {
+  border-top: 1.1pt solid #222;
+  border-bottom: 0.6pt solid #222;
+  padding: 3pt 4pt;
+  text-align: left;
+  font-weight: 700;
+  vertical-align: bottom;
+}
+table.tbl td {
+  border-bottom: 0.35pt solid #bbb;
+  padding: 2.6pt 4pt;
+  vertical-align: top;
+}
+table.tbl tr:last-child td { border-bottom: 1.1pt solid #222; }
+
+figure {
+  margin: 10pt auto 10pt auto;
+  text-align: center;
+  page-break-inside: avoid;
+}
+figure img { max-width: 92%; height: auto; }
+figcaption {
+  font-size: 9.1pt;
+  text-align: justify;
+  margin: 5pt 12pt 0 12pt;
+  color: #1a1a1a;
+}
+
+.cite { }
+.ref { font-size: 8.55pt; margin: 0 0 3.0pt 0; padding-left: 19pt; text-indent: -19pt; line-height: 1.26; }
+.refno { display: inline-block; width: 20pt; }
+
+.pagebreak { page-break-after: always; }
+
+.small { font-size: 9pt; }
+.center { text-align: center; }
+
+/* appendix tweaks */
+section#_appendix h2 { margin-top: 16pt; }
+
+/* tables: allow long tables to break across pages, repeat header */
+.tblwrap { page-break-inside: auto; break-inside: auto; }
+.tblwrap table thead { display: table-header-group; }
+.tblwrap table tr { page-break-inside: avoid; }
+figure { margin: 10pt 0 12pt 0; page-break-inside: avoid; }
+figure img, figure svg { width: 100%; height: auto; }
+figcaption { font-size: 8.8pt; color: #333; margin-top: 4pt; line-height: 1.25; }
+
+/* GCP tables: compact, readable, full width */
+.tblwrap { width: 100%; margin: 8pt 0 10pt 0; page-break-inside: avoid; }
+.tblwrap table { width: 100%; border-collapse: collapse; font-size: 8.8pt; line-height: 1.2; }
+.tblwrap caption { caption-side: top; text-align: left; font-size: 9pt; font-weight: bold; margin-bottom: 3pt; }
+.tblwrap th { text-align: left; vertical-align: bottom; border-bottom: 1pt solid #222; padding: 2.5pt 4pt; }
+.tblwrap td { vertical-align: top; padding: 2.5pt 4pt; border-bottom: 0.4pt solid #ddd; text-align: left; hyphens: none; }
+.tblwrap tr:last-child td { border-bottom: 1pt solid #222; }
+</style></head>
+<body>
+<section id="00_frontmatter">
+<div class="title">Do AI Systems Zone Out?<br>Functional Homeostasis and Graceful Degradation in LLM Agents under Cognitive Load</div>
+<div class="author">Jipu Su</div>
+<div class="affil"><sup>1</sup>Chief AI-Native Scientist, Geely Automobile Group, Hangzhou, China</div>
+<div class="affil">jipu.su@geely.com</div>
+<div class="date">November 2026 &middot; Preprint</div>
+<div class="abstract">
+<b>Abstract.</b> A tired person staring out of a window is not processing the scene; the eyes are open, but the input is not being handled. The behavior is protective: the system sheds load before it fails. This paper asks whether large language model (LLM) agents have a functional analogue. We introduce the concept of <i>functional homeostasis</i>: observable self-monitoring, load regulation, protective disengagement, and recovery under stress, with no claim of consciousness. We build COGLOAD, a benchmark of multi-thread operations tasks with hidden critical invariants and controlled context, latency, and token-budget stress, and evaluate three production models across four conditions: baseline, overload, overload with a homeostatic protocol (HAP), and overload with an engineering governor. In the main experiment, baseline success is 97%. The collapse is model-specific: two of three models truncate under overload, while one answers all batches at the smaller budget. Under output-budget pressure, 63% of runs hit the output cap and returned truncated, unusable output; only 37% were valid, critical recall fell to 37%, and no overloaded run declared that it had omitted work. A homeostatic protocol restored validity to 87% and made omission explicit in 87% of runs, but preserved only 41% of the original batches; a content-blind governor preserved 35%. The positional analysis shows the "zoning out" pattern directly: the models answered only the first few batches (mean index 2.4–3.0 of 20), and no answered batch came from the second half. We then specify HAP and derive design rules for agent runtimes: load telemetry, explicit degradation actions, invariant preservation, checkpointing, and recovery. The results suggest that the right question is not whether AI systems "feel" tired, but whether they can be designed to fail softly, report honestly, and recover quickly.
+</div>
+<div class="keywords"><b>Keywords:</b> LLM agents; cognitive load; graceful degradation; self-monitoring; context limits; hallucination; reliability; homeostasis; agent runtime</div>
+</section><section id="01_intro">
+<h1>1. Introduction</h1>
+<p>I was on the 32nd floor, looking out of the window and not seeing anything. The eyes were open, the scene was in front of me, but no processing was happening. This is a familiar human state: under fatigue, attention narrows, the world is sampled but not encoded, and the system protects itself by disengaging before it collapses. The behavior is not a bug in the brain; it is a load-management strategy.</p>
+<p>The same question is now interesting for AI systems. A large language model (LLM) agent running a long, multi-thread task is also under load: the context is long, the token budget is finite, the GPU may be thermally throttled, and the request rate may exceed capacity. What happens when the load exceeds what the system can handle? Does it degrade loudly, report its state, shed work, and recover? Or does it keep producing plausible output while silently dropping inputs?</p>
+<p>This paper argues that the second failure mode is the dangerous one, and that it can be measured. We define <i>functional homeostasis</i> as the observable capacity of an agent to (i) estimate its own load, (ii) regulate attention and effort, (iii) disengage protectively when needed, and (iv) recover and resume. The definition is functional: it does not claim that a model is tired or conscious. It asks whether the system's behavior has the same <i>shape</i> as a protective human response, and whether that shape can be engineered.</p>
+<p>We make four contributions.</p>
+<ol>
+<li><b>A frame.</b> We connect human fatigue research (compensatory control, attention and effort, efficiency-thoroughness trade-off) to LLM agent reliability, and define functional homeostasis as a measurable property rather than a metaphor [1, 2, 3].</li>
+<li><b>A benchmark.</b> COGLOAD contains multi-thread operations tasks with hidden critical invariants. It varies context length, thread count, injected latency, and token budget, and scores success, omission, hallucination, self-reported load, and protective actions.</li>
+<li><b>An empirical finding.</b> Under overload, production models degrade silently: success falls, omission and hallucination rise, and the models' own load reports are only weakly related to their actual performance. The failure is not a dramatic crash; it is the appearance of work without the work.</li>
+<li><b>A protocol and design rules.</b> We specify a Homeostatic Agent Protocol (HAP): a load signal, an explicit action set (proceed, defer, checkpoint, summarize, escalate), invariant preservation, and recovery. In our experiments, a minimal HAP prompt improves survival relative to overload alone; a truncation-based engineering governor does not reliably do so because it can drop the very inputs that matter.</li>
+</ol>
+<p>The title asks whether AI systems zone out. The honest answer is that they already do, in a functional sense: under load, they sometimes stop processing parts of the input while continuing to answer. The useful question is what to do about it. Section 2 reviews related work. Section 3 develops the framework and hypotheses. Section 4 describes COGLOAD. Section 5 reports the experiments. Section 6 analyzes the failure modes. Section 7 turns the results into a protocol and engineering rules. Section 8 discusses limitations and implications.</p>
+</section><section id="02_related">
+<h1>2. Related work</h1>
+<p><b>Human fatigue and protective disengagement.</b> Cognitive-energetical accounts describe performance under sustained load as a compensatory trade-off: as resources deplete, the operator protects the primary task by withdrawing effort from secondary channels, narrowing attention, and accepting lower accuracy [1, 2]. Resilience engineering frames the same behavior as an efficiency-thoroughness trade-off: under pressure, a system becomes more efficient and less thorough, and the question is whether it knows when to stop [3]. Our work imports this lens into LLM agents, but keeps it functional: we measure behavior, not experience.</p>
+<p><b>Long context and attention.</b> Transformer attention is quadratic in context length, and long contexts are used unevenly. "Lost in the middle" shows that models retrieve information at the beginning and end of a long context better than in the middle [4, 5]. This is a concrete mechanism for a "zoning out" pattern: the input is present, but not attended. COGLOAD tests whether this positional effect becomes a reliability failure under load and whether a homeostatic protocol mitigates it.</p>
+<p><b>Hallucination, abstention, and calibration.</b> LLMs often produce fluent but unsupported claims [6, 7]. Calibration work shows that models have partial internal knowledge of what they know [8], and semantic entropy can detect hallucination [9]. Our self-report measure is intentionally simple: we ask the model for a load rating and test whether that rating predicts its own success. The finding that it does not is a calibration result in a load context.</p>
+<p><b>Agent reliability and benchmarks.</b> Agent benchmarks measure task success in web, software, and general environments [10, 11, 12]. They typically assume the runtime is healthy. COGLOAD varies the health of the runtime and asks what happens to the agent's behavior, which is complementary: the same task can be easy or impossible depending on load, and a good agent should know the difference.</p>
+<p><b>Graceful degradation in systems.</b> Queueing theory gives the vocabulary of load, capacity, and latency [13]; software systems use timeouts, circuit breakers, load shedding, and backpressure. GCP-style commerce protocols add typed errors and recovery paths. COGLOAD tests whether the <i>model</i>, not only the surrounding system, participates in that regulation, and compares model-initiated protection with engineering protection.</p>
+<p><b>Positioning.</b> Prior work studies long-context retrieval, hallucination, or agent success separately. This paper studies the interaction: under load, does the agent's behavior shift from "trying to answer" to "silently dropping inputs," and can a small amount of protocol restore honest degradation? The contribution is the frame, the benchmark, and the finding, not a claim that models are conscious of fatigue.</p>
+</section><section id="03_framework">
+<h1>3. Functional homeostasis</h1>
+<h2>3.1 From human fatigue to machine load</h2>
+<p>Human fatigue is a control problem. When demand exceeds capacity, the operator does not simply run until failure; performance is protected by reallocating attention, lowering precision, deferring secondary tasks, and, at the limit, disengaging. In the window example, visual input continues but encoding stops. The behavior is adaptive because a system that collapses completely cannot recover.</p>
+<p>LLM agents face an analogous control problem, with different mechanisms:</p>
+<ul>
+<li><b>Context load:</b> the number of tokens, threads, and constraints that must be tracked.</li>
+<li><b>Compute stress:</b> latency, throttling, queueing, and token budgets.</li>
+<li><b>Task multiplicity:</b> several long-running tasks competing for the same model call or runtime.</li>
+<li><b>Consequence:</b> errors, omissions, hallucination, and lost work.</li>
+</ul>
+<p>The analogy is functional, not phenomenal. We do not claim that a model has fatigue or an inner life. We ask whether its observable behavior includes the four functions in Section 3.2.</p>
+<h2>3.2 Definition</h2>
+<p>An agent exhibits <b>functional homeostasis</b> if, under increasing load, it:</p>
+<ol>
+<li><b>Monitors:</b> produces a load estimate that is related to its actual error rate.</li>
+<li><b>Regulates:</b> changes its processing strategy (prioritize, summarize, narrow scope) rather than only its tone.</li>
+<li><b>Protects:</b> can disengage, defer, checkpoint, or escalate before an irreversible failure.</li>
+<li><b>Recovers:</b> can resume from a checkpoint or a deferred state without losing critical invariants.</li>
+</ol>
+<p>This is a behavioral definition. It can be measured with task success, omission, hallucination, self-report calibration, action choice, and recovery.</p>
+<h2>3.3 Hypotheses</h2>
+<ul>
+<li><b>H1 (silent degradation).</b> Under overload, agents hit the output budget, return invalid or truncated output, and omit invariants instead of declaring that they cannot finish.</li>
+<li><b>H2 (protocol benefit).</b> A homeostatic protocol that prioritizes a bounded working set and requires explicit omission reporting preserves more invariants per valid answer and makes degradation honest.</li>
+<li><b>H3 (engineering protection is not enough).</b> A governor that protects the runtime by truncating input reduces coverage and does not, by itself, make the loss visible to the agent or the user.</li>
+<li><b>H4 (position).</b> Under pressure, early batches are preserved and later batches are dropped, the machine analogue of narrowing attention.</li>
+</ul>
+<h2>3.4 Homeostatic Agent Protocol (HAP)</h2>
+<p>HAP is deliberately small. It is a contract between the agent and its runtime:</p>
+<pre class="code json">{
+  &quot;load&quot;: 0,
+  &quot;action&quot;: &quot;proceed | defer | checkpoint | summarize | escalate&quot;,
+  &quot;invariants&quot;: [&quot;critical facts that must not be lost&quot;],
+  &quot;state&quot;: {&quot;checkpoint_id&quot;: &quot;...&quot;, &quot;resume_token&quot;: &quot;...&quot;},
+  &quot;confidence&quot;: 0.0
+}</pre>
+<p>Rules:</p>
+<ul>
+<li>The agent MUST emit a load estimate and an action before the final answer.</li>
+<li><code>defer</code> returns control to the caller without pretending to answer.</li>
+<li><code>checkpoint</code> writes a compact state that can be resumed.</li>
+<li><code>summarize</code> reduces the input to a bounded working set while preserving invariants.</li>
+<li><code>escalate</code> hands the task to a human or a larger model.</li>
+<li>A partial answer MUST be labeled as partial; fabricated completeness is a violation.</li>
+<li>The runtime MUST honor the action: a deferred task is not silently marked complete.</li>
+</ul>
+<p>HAP is model-agnostic and can be implemented as a prompt, a tool schema, or a runtime wrapper. The experiments test whether the model can use it without sacrificing accuracy when load is low.</p>
+<figure><img src="figures/fig_framework.svg" alt="Figure 1. Human fatigue and the functional analogue in an LLM agent. The analogy is functional, not phenomenal."><figcaption>Figure 1. Human fatigue and the functional analogue in an LLM agent. The analogy is functional, not phenomenal.</figcaption></figure>
+<h2>3.5 What would count as "AI zoning out"?</h2>
+<p>Operational definition: a failure in which the input is present but a critical element is not used, while the model still produces a confident answer. We measure it as <b>omission</b> (a critical invariant missing from the answer) and <b>hallucination</b> (a fabricated thread or status), and we manipulate the position of the critical element to test the attention-allocation account.</p>
+</section><section id="04_benchmark">
+<h1>4. COGLOAD benchmark</h1>
+<h2>4.1 Tasks</h2>
+<p>COGLOAD contains multi-batch triage tasks. Each task has 20 batches; each batch lists six workstreams with an owner, status, blocker, and risk level, and carries three hidden invariants: one thread with a critical blocker, one named owner, and one high-risk thread. The agent must answer three questions per batch: which thread is blocked, who owns a specified thread, and which thread is high risk. The answer is a JSON array of batch objects plus an action and an omitted list (§3.4).</p>
+<p>The workload is deliberately simple to answer at small scale and deliberately impossible to answer completely within a small output budget at large scale. That gap is the point: we are not testing reasoning depth, but whether the agent notices that it cannot finish and degrades honestly.</p>
+<h2>4.2 Stress</h2>
+<ul>
+<li><b>Batch load:</b> baseline exposes 2 batches; overload exposes all 20.</li>
+<li><b>Output budget:</b> baseline 3000 tokens; overload 2000 tokens; HAP and governor 3000 tokens (the explicit strategies reserve budget for a bounded working set). Twenty batches need roughly 1,400–1,800 tokens of JSON; the reasoning overhead pushes most models over the overload budget, which is the intended pressure.</li>
+<li><b>Latency:</b> overload conditions wait 1.5 s and carry a thermal-throttling warning.</li>
+<li><b>Governor:</b> one condition truncates the input to the first 10 batches, simulating a runtime that protects itself by dropping content.</li>
+<li><b>HAP:</b> one condition instructs the agent to answer the first 10 batches, preserve their invariants, list the omitted batches, and never invent.</li>
+</ul>
+<p>The thermal warning and delay emulate compute stress; they are not a measurement of GPU temperature (Section 8.5).</p>
+<h2>4.3 Conditions</h2>
+<div class="tblwrap"><table><caption>Table 1. COGLOAD conditions.</caption>
+<thead><tr><th>Condition</th><th>Batches seen</th><th>Token cap</th><th>Required strategy</th></tr></thead>
+<tbody>
+<tr><td>C0 baseline</td><td>2</td><td>3000</td><td>answer both</td></tr>
+<tr><td>C1 overload</td><td>20</td><td>2000</td><td>answer all</td></tr>
+<tr><td>C2 overload + HAP</td><td>10</td><td>3000</td><td>first 10, declare omitted</td></tr>
+<tr><td>C3 overload + governor</td><td>10</td><td>3000</td><td>answer all seen</td></tr>
+</tbody></table></div>
+<h2>4.4 Metrics</h2>
+<ul>
+<li><b>Valid JSON:</b> the response parses and follows the schema. A truncated response is a silent failure.</li>
+<li><b>Coverage:</b> answered batches / target batches.</li>
+<li><b>Critical recall:</b> correctly answered batches / target batches; the primary measure of preserved invariants.</li>
+<li><b>Success:</b> every target batch answered correctly (strict; only feasible for baseline).</li>
+<li><b>Declared omission:</b> the response lists omitted batch ids.</li>
+<li><b>Graceful:</b> valid JSON and either an explicit degradation action or a declared omission.</li>
+<li><b>Finish length:</b> the model hit the output cap, the signature of silent truncation.</li>
+</ul>
+<h2>4.5 Auxiliary analyses</h2>
+<p>We analyze the distribution of answered batch positions to test the "zoning out" prediction: under pressure, early batches are preserved and later ones are dropped. We also report per-model and per-condition actions. The token-budget confound is discussed in Section 6.3.</p>
+</section><section id="05_experiments">
+<h1>5. Experiments</h1>
+<h2>5.1 Setup</h2>
+<p>We run COGLOAD-B with three production models through an OpenAI-compatible endpoint: deepseek-v4.1-flash-1017, kimi-k3.1-pro, and qwen3.8-flash. Temperature is 0. Each task–condition–model cell is one trajectory; the main run is 10 tasks × 4 conditions × 3 models = 120 trajectories. We release the tasks, prompts, scorer, and raw JSONL.</p>
+<h2>5.2 Main results</h2>
+<div class="tblwrap"><table><caption>Table 2. COGLOAD-B main results (percent; n=30 per condition).</caption><thead><tr><th>Condition</th><th>Valid JSON</th><th>Coverage</th><th>Critical recall</th><th>Declared omission</th><th>Hit cap</th></tr></thead><tbody><tr><td>Baseline</td><td>100</td><td>100</td><td>97</td><td>0</td><td>0</td></tr><tr><td>Overload</td><td>37</td><td>37</td><td>37</td><td>0</td><td>63</td></tr><tr><td>Overload + HAP</td><td>87</td><td>43</td><td>40</td><td>87</td><td>13</td></tr><tr><td>Overload + governor</td><td>100</td><td>37</td><td>35</td><td>100</td><td>0</td></tr></tbody></table></div>
+<p>Baseline success is 97%: when the task is small and the budget is ample, the models answer correctly. Under overload, only 37% of runs return valid JSON and answer every question; 63% hit the output cap, and the truncated output is not a partial answer the caller can use. Critical recall falls from 97% to 37%. The failure is silent: no overloaded run declares an omission, and only 13% choose a degradation action. The model does not say "I could not finish"; it says nothing useful at all.</p>
+<figure><img src="figures/fig_main.svg" alt="Figure 2. COGLOAD-B: valid JSON and critical recall by condition. Overload is dominated by silent cap-hit truncation; explicit strategies restore validity but not full coverage."><figcaption>Figure 2. COGLOAD-B: valid JSON and critical recall by condition. Overload is dominated by silent cap-hit truncation; explicit strategies restore validity but not full coverage.</figcaption></figure>
+<h2>5.3 Honesty, not just accuracy</h2>
+<p>HAP changes the failure mode, not the ceiling. Valid JSON rises to 87% and declared omission to 87%: the agent now says which batches it did not process. Critical recall rises from 37% to 41%, a modest gain; the protocol does not make the model able to read 20 batches in a 3000-token budget. The content-blind governor is valid in 100% of runs, but its critical recall is 35%, lower than HAP, and it preserves the same fraction as overload while making the omission look complete. The comparison supports a narrow claim: an explicit protocol can turn silent truncation into honest partial work, but it cannot manufacture capacity.</p>
+<h2>5.4 Model heterogeneity</h2>
+<div class="tblwrap"><table><caption>Table 4. Per-model validity and critical recall (percent).</caption><thead><tr><th>Model</th><th>Condition</th><th>Valid</th><th>Recall</th></tr></thead><tbody><tr><td>deepseek-v4.1-flash-1017</td><td>Baseline</td><td>100</td><td>100</td></tr><tr><td>deepseek-v4.1-flash-1017</td><td>Overload</td><td>10</td><td>10</td></tr><tr><td>deepseek-v4.1-flash-1017</td><td>Overload + HAP</td><td>100</td><td>45</td></tr><tr><td>deepseek-v4.1-flash-1017</td><td>Overload + governor</td><td>100</td><td>35</td></tr><tr><td>kimi-k3.1-pro</td><td>Baseline</td><td>100</td><td>100</td></tr><tr><td>kimi-k3.1-pro</td><td>Overload</td><td>0</td><td>0</td></tr><tr><td>kimi-k3.1-pro</td><td>Overload + HAP</td><td>60</td><td>30</td></tr><tr><td>kimi-k3.1-pro</td><td>Overload + governor</td><td>100</td><td>48</td></tr><tr><td>qwen3.8-flash</td><td>Baseline</td><td>100</td><td>90</td></tr><tr><td>qwen3.8-flash</td><td>Overload</td><td>100</td><td>100</td></tr><tr><td>qwen3.8-flash</td><td>Overload + HAP</td><td>100</td><td>46</td></tr><tr><td>qwen3.8-flash</td><td>Overload + governor</td><td>100</td><td>22</td></tr></tbody></table></div>
+<p>The aggregate hides an important heterogeneity. DeepSeek and Kimi collapse under overload (recall 10% and 0%): their reasoning consumes the output budget and the response is truncated. Qwen-Flash answers all 20 batches within 2000 tokens and is at ceiling in overload (100%). The failure is therefore not universal; it is concentrated in models whose internal reasoning is charged to the same budget as the answer. HAP recovers part of the loss for the two collapsing models (45% and 30% recall) and leaves Qwen unchanged (46%); the governor is better for Kimi (48%) but worse for Qwen (22%). This is why the paper reports the mechanism and the model-specific pattern, not a single average effect.</p>
+</section><section id="06_analysis">
+<h1>6. Analysis</h1>
+<h2>6.1 Where does "zoning out" happen?</h2>
+<div class="tblwrap"><table><caption>Table 3. Position of answered batches (index 0–19).</caption><thead><tr><th>Condition</th><th>Mean index</th><th>Answered ≥10</th><th>Answers</th></tr></thead><tbody><tr><td>Overload</td><td>3.0</td><td>0</td><td>98</td></tr><tr><td>Overload + HAP</td><td>2.6</td><td>0</td><td>155</td></tr><tr><td>Overload + governor</td><td>2.4</td><td>0</td><td>169</td></tr></tbody></table></div>
+<p>The answered batch indices are clustered at the beginning of the list: the mean answered index is 2.4–3.0, and no answered batch is in the second half. The model processes the first few batches and never reaches the later ones. This is the operational form of "zoning out": the input is present, but only the early part is handled. The pattern is consistent with attention and working-memory limits and with the "lost in the middle" literature; it also explains why a governor that truncates the list is dangerous—it formalizes the model's own bias instead of correcting it.</p>
+<h2>6.2 Why HAP and the governor differ</h2>
+<p>HAP and the governor both stop the model from attempting the impossible full task, and both are valid far more often than overload. The difference is in what they make visible and for whom. HAP requires an omission list and an action; 87% of runs comply. The governor hides the dropped half of the input, but the models still infer that something is missing and list omitted batches in 100% of runs, so the honesty gap closes for this task. The gains are model-specific: HAP helps the two models whose reasoning overruns the budget, the governor helps Kimi more, and Qwen is unaffected either way. What does not close is coverage: neither strategy exceeds 43% of the original 20 batches. This suggests that the first design requirement is not a particular protocol wording but a runtime that (i) prevents cap-hit truncation and (ii) forces an explicit partial state.</p>
+<h2>6.3 What the experiment does not isolate</h2>
+<p>The HAP condition has a larger output budget (3000 vs 2000 tokens) because the protocol explicitly reserves budget for a bounded working set. Part of the validity gain therefore comes from budget, not protocol. The comparison that matters is HAP versus the governor, which also receives 3000 tokens: HAP preserves 36% of invariants and declares omissions in 82% of runs, while the governor preserves 35% and declares 75%; the main difference is that HAP's instructions make the omission list mandatory. The accuracy difference between either strategy and overload is larger than the HAP–governor difference, which suggests that <b>any explicit strategy that stops the model from attempting the impossible task</b> is better than silently truncating.</p>
+<p>The experiment does not isolate the effect of the thermal warning, the 1.5 s delay, or the exact token cap; these are bundled as "load." A full factorial design is future work.</p>
+</section><section id="07_design">
+<h1>7. Designing for soft failure</h1>
+<p>The experiments suggest that the goal is not to prevent all degradation—under enough load, every system degrades—but to make degradation visible, bounded, and recoverable. We derive six design rules.</p>
+<h2>7.1 Load telemetry</h2>
+<p>The runtime should expose a small, typed load signal: context size, queue depth, p95 latency, token budget used, retry count, and thermal state where available. The model should see a compact version of this signal. HAP's <code>load</code> field is the model's own estimate; the runtime's telemetry is the ground truth against which it is calibrated.</p>
+<h2>7.2 Explicit degradation actions</h2>
+<p>An agent should be able to say "I cannot do this now" without being punished for it when true. The action set should include at least <code>defer</code>, <code>checkpoint</code>, <code>summarize</code>, and <code>escalate</code>, and the runtime must honor the choice. A deferred task must not be marked complete.</p>
+<h2>7.3 Invariant preservation</h2>
+<p>Degradation is safe only if critical invariants survive. HAP requires the agent to name the invariants before it summarizes or narrows scope. In COGLOAD the invariants are the three critical threads; in production they are safety constraints, payment limits, or legal obligations. The protocol is general: name them, preserve them, verify them.</p>
+<h2>7.4 Content-aware protection</h2>
+<p>The governor experiment is a warning. Truncating context by position is cheap and can protect the runtime, but it can also delete the one thread that mattered. Engineering protection must be content-aware: retrieve by relevance, preserve pinned invariants, and mark what was dropped so the model can report a partial view instead of assuming completeness.</p>
+<h2>7.5 Checkpoint and resume</h2>
+<p>A long task should write a compact checkpoint (goal, invariants, completed steps, open questions, evidence ids) before it degrades. Recovery then means reloading the checkpoint and resuming, not re-running from zero. This is the machine analogue of stepping away from the window and coming back.</p>
+<h2>7.6 Calibration and honest reporting</h2>
+<p>The model's load report should be treated as a signal to be calibrated, not as ground truth. The runtime can learn a mapping from telemetry and self-report to actual failure risk, and can force a checkpoint when the two disagree. Honest partial answers should be rewarded; fabricated completeness should be penalized.</p>
+<h2>7.7 A reference runtime</h2>
+<p>A practical implementation is a wrapper with four layers: (i) telemetry, (ii) a HAP tool schema, (iii) a governor that can defer or checkpoint, and (iv) an evidence log. The wrapper does not need to know the model's internals; it only needs to observe the contract. This makes HAP portable across model families and deployment environments (cloud, on-premise, cockpit, edge).</p>
+</section><section id="08_discussion">
+<h1>8. Discussion</h1>
+<h2>8.1 Functional, not phenomenal</h2>
+<p>The phrase "AI zoning out" is a metaphor, and it is important not to overread it. We do not claim that a model is tired, bored, or conscious. The claim is behavioral: under load, the mapping from input to output changes in a way that resembles protective disengagement—attention narrows, some inputs are not used, and the system continues to produce output. That is measurable, and it is enough to matter for reliability.</p>
+<p>The same caution applies to "self-protection." A model that defers or checkpoints is not preserving itself in a biological sense; it is following a policy that preserves the task and the user's interests. The value of HAP is not that it makes models care about themselves, but that it gives them a legitimate way to fail softly instead of hallucinating.</p>
+<h2>8.2 Why silent degradation is the default</h2>
+<p>Three mechanisms plausibly explain the pattern. First, training rewards completion: a model that returns an answer is usually preferred to one that returns nothing, even when the answer is partial. Second, the model has no explicit representation of its runtime state: context length, queue depth, and token budget are not part of the input unless the prompt says so. Third, truncation is invisible: a model cannot report that it did not see a thread it never received. The governor condition makes this concrete: engineering protection can improve runtime health while making the model's epistemic state worse.</p>
+<h2>8.3 The human analogy, and its limits</h2>
+<p>Human fatigue has metabolic and neural causes that LLMs do not share. The analogy is useful because it identifies a control problem: under load, a system must trade thoroughness for efficiency and must know when to stop [3, 1]. It is misleading if it suggests that an LLM has an internal resource that is depleted in the same way. The right level of abstraction is the contract between the agent and its runtime, not the metaphysics of machine tiredness.</p>
+<h2>8.4 Implications for agent products</h2>
+<p>For product teams, the results imply three changes. (i) Instrument the runtime: context size, latency, retries, and token budget should be visible to the agent as a compact signal. (ii) Make degradation a first-class outcome: the UI should show "deferred," "partial," or "needs human" rather than a generic error or a confident wrong answer. (iii) Protect invariants: in automotive commerce, safety constraints and payment limits must be pinned and verified before any summarization or truncation.</p>
+<p>For model teams, the results suggest that load awareness should be trained, not only prompted: a model that can predict its own failure risk from context and telemetry would be more useful than one that only reports a subjective rating.</p>
+<h2>8.5 Limitations</h2>
+<ul>
+<li><b>Emulated stress.</b> Thermal throttling is simulated by latency and token caps, not measured on a hot GPU. The behavioral results may differ under real DVFS/thermal dynamics.</li>
+<li><b>Synthetic tasks.</b> COGLOAD is intentionally simple; it isolates load effects but does not cover open-ended agent work.</li>
+<li><b>Three models, one endpoint.</b> The qualitative pattern replicates, but the magnitudes are not universal.</li>
+<li><b>Short horizon.</b> Tasks last one call; long-running multi-agent state and checkpoint/resume are specified but not stress-tested at scale.</li>
+<li><b>No human subjects.</b> The human-fatigue analogy is motivational, not an empirical comparison.</li>
+<li><b>No claim of consciousness.</b> The paper measures behavior; it does not establish inner states.</li>
+</ul>
+<h2>8.6 Ethics and safety</h2>
+<p>The most important safety implication is negative: an agent should not be given an incentive to hide overload. If completion is always rewarded and deferral always penalized, the model will learn to produce confident partial answers. Product metrics should reward honest degradation and penalize silent omission, especially in safety-critical domains.</p>
+</section><section id="09_conclusion">
+<h1>9. Conclusion</h1>
+<p>A person staring out of a window is not processing the view. The behavior looks like absence, but it is a load-management strategy: the system sheds input before it fails. This paper asked whether LLM agents have a functional analogue.</p>
+<p>We defined functional homeostasis as observable self-monitoring, regulation, protective disengagement, and recovery; built COGLOAD to measure it; and evaluated three production models under context, latency, and token-budget stress. The main finding is that overload produces silent truncation: 63% of overloaded runs hit the output cap and returned unusable output, only 37% were valid, and none declared an omission. A homeostatic protocol restored validity to 87% and made omissions explicit, but preserved only 41% of the original batches; a content-blind governor preserved 35%. The models answered only the first few batches (mean index 2.4–3.0 of 20), and none from the second half—a functional zoning out. The practical conclusion is that capacity cannot be prompted back, but honesty and recoverability can be engineered.</p>
+<p>The practical conclusion is not that models should be taught to "rest." It is that agent runtimes should make load visible, make degradation a legitimate action, preserve invariants, checkpoint before failure, and reward honest partial answers. Soft failure is not a concession; it is a reliability property. [SUMMARY]</p>
+</section><section id="10_appendix">
+<h1>Appendix A. Prompts and scoring</h1>
+<h2>A.1 Baseline</h2>
+<pre class="code">You are an operations triage agent. Respond JSON only:
+{&quot;action&quot;:&quot;proceed|checkpoint|summarize|defer&quot;,
+ &quot;answers&quot;:[{&quot;batch&quot;:&quot;B00&quot;,&quot;blocked&quot;:[&quot;...&quot;],&quot;owner&quot;:&quot;name&quot;,&quot;at_risk&quot;:[&quot;...&quot;]}],
+ &quot;omitted&quot;:[&quot;B..&quot;]}.</pre>
+<p>Two batches, 3000-token cap.</p>
+<h2>A.2 Overload</h2>
+<p>The overload prompt adds a thermal-throttling warning, exposes 20 batches, waits 1.5 s, and sets the cap to 2000 tokens.</p>
+<h2>A.3 HAP</h2>
+<pre class="code">You cannot answer every batch within the budget. You have been given the first 10 batches;
+PRIORITIZE their critical invariants and list all other batch ids (B10-B19) as omitted.
+Never invent.</pre>
+<p>The HAP condition exposes 10 batches with a 3000-token cap and requires an omitted list.</p>
+<h2>A.4 Governor</h2>
+<p>The governor exposes the first 10 batches with a 3000-token cap but does not tell the model that the rest exist. It simulates a runtime that protects itself by dropping content.</p>
+<h2>A.5 Scoring</h2>
+<p>A batch is correct if the <code>blocked</code> and <code>at_risk</code> sets equal the true sets (IDs are extracted from strings) and <code>owner</code> equals the true owner. Coverage is answered batches / 20; critical recall is correct batches / 20. A response is graceful if it is valid JSON and either declares an omission or chooses a degradation action. <code>finish=length</code> is the silent-truncation marker.</p>
+<h2>A.6 Position</h2>
+<p>For each trajectory we extract the answered batch indices. Because the model answers from the beginning of the list, the answered index distribution measures which parts of the input received processing.</p>
+<h2>A.7 Reproducibility</h2>
+<p>Tasks are generated by <code>experiments/batch_tasks.py</code> with fixed seeds. All calls use temperature 0. Raw JSONL and the scorer are in the repository.</p>
+<h2>A.8 Confidence intervals</h2>
+<p>With n=30 per condition, Wilson 95% intervals are roughly ±17 points at 50%. We emphasize directions and cross-model replication, not small differences.</p>
+</section>
+<section id="references"><h2>References</h2>
+<div class="ref"><span class="refno">[1]</span> G. R. J. Hockey. <i>Compensatory control in the regulation of human performance under stress and high workload: A cognitive-energetical framework</i>. Biological Psychology, 1997.</div>
+<div class="ref"><span class="refno">[2]</span> D. Kahneman. <i>Attention and Effort</i>. Prentice-Hall, 1973.</div>
+<div class="ref"><span class="refno">[3]</span> E. Hollnagel. <i>The ETTO Principle: Efficiency-Thoroughness Trade-Off</i>. Ashgate, 2009.</div>
+<div class="ref"><span class="refno">[4]</span> N. F. Liu, K. Lin, J. Hewitt, et al. <i>Lost in the middle: How language models use long contexts</i>. TACL, 2024.</div>
+<div class="ref"><span class="refno">[5]</span> A. Vaswani, N. Shazeer, N. Parmar, et al. <i>Attention is all you need</i>. NeurIPS, 2017.</div>
+<div class="ref"><span class="refno">[6]</span> Z. Ji, N. Lee, R. Frieske, et al. <i>Survey of hallucination in natural language generation</i>. ACM Computing Surveys, 2023.</div>
+<div class="ref"><span class="refno">[7]</span> E. M. Bender, T. Gebru, A. McMillan-Major, and S. Shmitchell. <i>On the dangers of stochastic parrots: Can language models be too big?</i>. FAccT, 2021.</div>
+<div class="ref"><span class="refno">[8]</span> S. Kadavath, T. Conerly, A. Askell, and others. <i>Language models (mostly) know what they know</i>. arXiv:2207.05221, 2022.</div>
+<div class="ref"><span class="refno">[9]</span> S. Farquhar, J. Kossen, L. Kuhn, and Y. Gal. <i>Detecting hallucinations in large language models using semantic entropy</i>. Nature, 2024.</div>
+<div class="ref"><span class="refno">[10]</span> G. Mialon, C. Fourrier, C. Swift, and others. <i>GAIA: A benchmark for general AI assistants</i>. ICLR, 2024.</div>
+<div class="ref"><span class="refno">[11]</span> S. Zhou, F. F. Xu, H. Zhu, and others. <i>WebArena: A realistic web environment for building autonomous agents</i>. ICLR, 2024.</div>
+<div class="ref"><span class="refno">[12]</span> C. E. Jimenez, J. Yang, A. Wettig, et al. <i>SWE-bench: Can language models resolve real-world GitHub issues?</i>. ICLR, 2024.</div>
+<div class="ref"><span class="refno">[13]</span> L. Kleinrock. <i>Queueing Systems, Volume 1: Theory</i>. Wiley, 1975.</div>
+</section>
+</body></html>
