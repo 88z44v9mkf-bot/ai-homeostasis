@@ -25,6 +25,8 @@ Models: deepseek-v4.1-flash-1017, kimi-k3.1-pro, qwen3.8-flash. 120 trajectories
 
 The collapse is model-specific: DeepSeek and Kimi truncate; Qwen-Flash answers all batches at 2000 tokens. The answered batches are always at the beginning of the list (mean index 2.4–3.0 of 20; none in the second half): a functional "zoning out".
 
+**Preprint:** Research Square, DOI [10.21203/rs.3.rs-11810033/v1](https://doi.org/10.21203/rs.3.rs-11810033/v1) (submitted 20 November 2026; QA/QC check).
+
 ## Files
 
 ```
